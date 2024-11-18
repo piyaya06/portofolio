@@ -1,3 +1,4 @@
+/* Default Styles */
 .App {
   text-align: center;
 }
@@ -35,4 +36,63 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Styling for the Profile Section */
+.single-about-img {
+  display: inline-block;
+  width: 350px; /* Membuat kotak lebih besar */
+  height: auto; /* Menyesuaikan tinggi sesuai gambar */
+  margin: 0 auto;
+  border-radius: 10px; /* Membuat sudut membulat */
+  overflow: hidden; /* Elemen di dalam kotak tidak keluar */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Memberikan bayangan */
+  position: relative; /* Untuk memindahkan gambar */
+  left: 70px; /* Geser lebih jauh ke kanan */
+}
+
+.single-about-img img {
+  width: 100%; /* Gambar memenuhi kotak */
+  height: auto; /* Jaga rasio gambar */
+  display: block; /* Hilangkan celah putih di bawah gambar */
+  object-fit: cover; /* Pastikan gambar terisi sepenuhnya */
+}
+
+.about-list-icon {
+  text-align: center;
+  margin-top: 20px; /* Menambahkan jarak antara gambar dan ikon */
+}
+
+.about-list-icon ul {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center; /* Ikon disejajarkan di tengah */
+  gap: 15px; /* Memberikan jarak antar ikon */
+}
+
+.about-list-icon ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Menyelaraskan ikon ke tengah lingkaran */
+  width: 50px; /* Ukuran lingkaran lebih kecil */
+  height: 50px; /* Ukuran lingkaran lebih kecil */
+  border: 2px solid #fff; /* Memberikan border putih */
+  border-radius: 50%; /* Membuat kotak menjadi lingkaran */
+  background-color: #282c34; /* Warna latar belakang */
+}
+
+.about-list-icon ul li a {
+  text-decoration: none; /* Hilangkan garis bawah */
+  color: #fff; /* Warna ikon default putih */
+  font-size: 22px; /* Ukuran ikon lebih kecil */
+  position: relative; /* Mengatur posisi ikon */
+  left: -2px; /* Geser sedikit ke kiri */
+  top: 2px; /* Menyesuaikan agar pas di tengah */
+  transition: color 0.3s ease, transform 0.3s ease; /* Animasi perubahan warna dan efek */
+}
+
+.about-list-icon ul li a:hover {
+  color: #61dafb; /* Warna ikon saat hover menjadi biru terang */
+  transform: scale(1.2); /* Membesarkan ikon saat hover */
 }
