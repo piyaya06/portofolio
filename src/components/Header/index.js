@@ -1,4 +1,12 @@
+import { useState } from "react";
+
 const Header = () => {
+  const [activeLink, setActiveLink] = useState("#about");
+
+  const handleSetActive = (section) => {
+    setActiveLink(section);
+  };
+
   return (
     <header className="top-area">
       <div className="header-area">
@@ -27,19 +35,49 @@ const Header = () => {
                 data-out="fadeOutUp"
               >
                 <li className="smooth-menu">
-                  <a href="#about">About</a>
+                  <a
+                    href="#about"
+                    className={activeLink === "#about" ? "active" : ""}
+                    onClick={() => handleSetActive("#about")}
+                  >
+                    About
+                  </a>
                 </li>
                 <li className="smooth-menu">
-                  <a href="#education">Education</a>
+                  <a
+                    href="#education"
+                    className={activeLink === "#education" ? "active" : ""}
+                    onClick={() => handleSetActive("#education")}
+                  >
+                    Education
+                  </a>
                 </li>
                 <li className="smooth-menu">
-                  <a href="#experience">Experience</a>
+                  <a
+                    href="#experience"
+                    className={activeLink === "#experience" ? "active" : ""}
+                    onClick={() => handleSetActive("#experience")}
+                  >
+                    Experience
+                  </a>
                 </li>
                 <li className="smooth-menu">
-                  <a href="#profiles">Profiles</a>
+                  <a
+                    href="#profiles"
+                    className={activeLink === "#profiles" ? "active" : ""}
+                    onClick={() => handleSetActive("#profiles")}
+                  >
+                    Profiles
+                  </a>
                 </li>
                 <li className="smooth-menu">
-                  <a href="#contact">Contact</a>
+                  <a
+                    href="#contact"
+                    className={activeLink === "#contact" ? "active" : ""}
+                    onClick={() => handleSetActive("#contact")}
+                  >
+                    Contact
+                  </a>
                 </li>
               </ul>
             </div>

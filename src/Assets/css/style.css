@@ -746,47 +746,51 @@ span.single-timeline-horizontal.spacial-horizontal-line {
 
 /*--contct button--*/
 
-/* contact-adress */
-.contact-add-head h3 {
-  font-size: 24px;
-  color: #3c4258;
+.contact-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Pastikan elemen mengisi seluruh tinggi viewport */
+  background-color: #f9f9f9; /* Tambahkan warna latar belakang jika diinginkan */
 }
-.contact-add-head p {
-  font-size: 16px;
-  text-transform: capitalize;
-  color: #636a82;
-  font-weight: 300;
-  margin-top: 6px;
-}
-/* contact-adress */
 
-/*.contact-add-info */
-.contact-add-info {
-  margin: 42px 0 52px;
+.contact-container {
+  width: 100%;
+  max-width: 600px; /* Batasi lebar formulir */
+  padding: 20px;
+  background-color: #ffffff; /* Warna latar belakang formulir */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan */
+  border-radius: 8px; /* Sudut melengkung */
 }
-.single-contact-add-info h3 {
-  color: #636a82;
-  font-weight: 500;
-}
-.single-contact-add-info p {
-  color: #999fb3;
-  font-size: 16px;
-  margin-top: 18px;
-}
-.single-contact-add-info {
-  margin-bottom: 26px;
-}
-/*.contact-add-info */
 
-.hm-foot-icon ul li > a {
-  color: #636a82;
-  margin-right: 18px;
-  -webkit-transition: 0.3s;
-  -moz-transition: 0.3s;
-  -ms-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
+.section-title {
+  text-align: center;
+  margin-bottom: 20px;
 }
+
+.form-control {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.btn-primary {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
 .hm-foot-icon ul li > a:hover {
   color: #b636ff;
 } /*hm-foot-icon*/

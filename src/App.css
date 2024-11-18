@@ -96,3 +96,12 @@
   color: #61dafb; /* Warna ikon saat hover menjadi biru terang */
   transform: scale(1.2); /* Membesarkan ikon saat hover */
 }
+
+.nav li a {
+  color: inherit; /* Warna default */
+  transition: color 0.3s ease; /* Efek transisi */
+}
+
+.nav li a.active {
+  color: purple; /* Warna ungu untuk tautan aktif */
+}
