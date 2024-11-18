@@ -70,15 +70,6 @@ const Header = () => {
                     Profiles
                   </a>
                 </li>
-                <li className="smooth-menu">
-                  <a
-                    href="#contact"
-                    className={activeLink === "#contact" ? "active" : ""}
-                    onClick={() => handleSetActive("#contact")}
-                  >
-                    Contact
-                  </a>
-                </li>
               </ul>
             </div>
           </div>
