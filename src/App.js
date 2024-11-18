@@ -5,7 +5,6 @@ import About from "./components/About";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
 import Profiles from "./components/Profiles";
-import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 const App = () => {
@@ -17,7 +16,6 @@ const App = () => {
       <Education />
       <Experience />
       <Profiles />
-      <Contact />
       <Footer />
     </div>
   );
