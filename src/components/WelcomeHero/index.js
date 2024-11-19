@@ -11,15 +11,13 @@ const WelcomeHero = () => {
     const db = getDatabase();
     const userRef = ref(db, "users/aprilia-mononutu");
 
-    // Ambil data secara real-time dari Firebase
     const unsubscribe = onValue(userRef, (snapshot) => {
       const data = snapshot.val();
       if (data) {
-        setUserData(data); // Perbarui state saat ada perubahan di Firebase
+        setUserData(data);
       }
     });
 
-    // Simpan data awal ke Firebase jika belum ada
     set(userRef, {
       name: userData.name,
       profession: userData.profession,
@@ -27,9 +25,8 @@ const WelcomeHero = () => {
       console.error("Error saving initial data:", error);
     });
 
-    // Hapus listener saat komponen di-unmount
     return () => unsubscribe();
-  }, []); // Hanya dijalankan sekali setelah komponen dimount
+  }, []);
 
   return (
     <section id="welcome-hero" className="welcome-hero">

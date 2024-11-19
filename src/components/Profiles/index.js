@@ -1,117 +1,62 @@
+import React, { useEffect, useState } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
+
 const Profiles = () => {
+  const [profiles, setProfiles] = useState([]);
+
+  useEffect(() => {
+    const db = getDatabase();
+    const profilesRef = ref(db, "profiles");
+
+    onValue(profilesRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        const profilesArray = Object.keys(data).map((key) => ({
+          ...data[key],
+          id: key,
+        }));
+        setProfiles(profilesArray);
+      }
+    });
+  }, []);
+
   return (
-    <section id="profiles" class="profiles">
-      <div class="profiles-details">
-        <div class="section-heading text-center">
+    <section id="profiles" className="profiles">
+      <div className="profiles-details">
+        <div className="section-heading text-center">
           <h2>Profiles</h2>
         </div>
-        <div class="container">
-          <div class="profiles-content">
-            <div class="row">
-              <div class="col-sm-3">
-                <div class="single-profile">
-                  <div class="profile-txt">
-                    <a
-                      href="https://www.facebook.com/share/UYGKXXuRPbkSSbtC/?mibextid=LQQJ4d"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <i class="fab fa-facebook-square"></i>
-                    </a>
-                    <div class="profile-icon-name">Facebook</div>
-                  </div>
-                  <div class="single-profile-overlay">
-                    <div class="profile-txt">
+        <div className="container">
+          <div className="profiles-content">
+            <div className="row">
+              {profiles.map((profile) => (
+                <div key={profile.id} className="col-sm-3">
+                  <div className="single-profile">
+                    <div className="profile-txt">
                       <a
-                        href="https://www.facebook.com/share/UYGKXXuRPbkSSbtC/?mibextid=LQQJ4d"
+                        href={profile.url}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <i class="fab fa-facebook-square"></i>
+                        <i className={profile.icon}></i>
                       </a>
-                      <div class="profile-icon-name">Facebook</div>
+                      <div className="profile-icon-name">{profile.name}</div>
+                    </div>
+                    <div className="single-profile-overlay">
+                      <div className="profile-txt">
+                        <a
+                          href={profile.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <i className={profile.icon}></i>
+                        </a>
+                        <div className="profile-icon-name">{profile.name}</div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="single-profile">
-                  <div class="profile-txt">
-                    <a
-                      href="https://www.instagram.com/aprilliamononutu_/profilecard/?igsh=cG1xd3hsZDZsNWRw"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <i class="fab fa-instagram"></i>
-                    </a>
-                    <div class="profile-icon-name">Instagram</div>
-                  </div>
-                  <div class="single-profile-overlay">
-                    <div class="profile-txt">
-                      <a
-                        href="https://www.instagram.com/aprilliamononutu_/profilecard/?igsh=cG1xd3hsZDZsNWRw"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <i class="fab fa-instagram"></i>
-                      </a>
-                      <div class="profile-icon-name">Instagram</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="single-profile">
-                  <div class="profile-txt">
-                    <a
-                      href="https://www.tiktok.com/@apiyaa___?_t=8rSftOMISps&_r=1"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <i class="fab fa-tiktok"></i>
-                    </a>
-                    <div class="profile-icon-name">TikTok</div>
-                  </div>
-                  <div class="single-profile-overlay">
-                    <div class="profile-txt">
-                      <a
-                        href="https://www.tiktok.com/@apiyaa___?_t=8rSftOMISps&_r=1"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <i class="fab fa-tiktok"></i>
-                      </a>
-                      <div class="profile-icon-name">TikTok</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="single-profile profile-no-border">
-                  <div class="profile-txt">
-                    <a
-                      href="https://github.com/piyaya06"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <i class="fab fa-github"></i>
-                    </a>
-                    <div class="profile-icon-name">GitHub</div>
-                  </div>
-                  <div class="single-profile-overlay">
-                    <div class="profile-txt">
-                      <a
-                        href="https://github.com/piyaya06"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <i class="fab fa-github"></i>
-                      </a>
-                      <div class="profile-icon-name">GitHub</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>

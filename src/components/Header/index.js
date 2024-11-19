@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+// Active Link Functionality Only (Tanpa Firebase)
 const Header = () => {
   const [activeLink, setActiveLink] = useState("#about");
 

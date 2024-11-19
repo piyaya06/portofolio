@@ -5,27 +5,25 @@ const About = () => {
   const [aboutData, setAboutData] = useState({
     about:
       "Halo! Nama saya Aprillia Erit Barlina Mononutu. Saya merupakan mahasiswa Informatika di Universitas Klabat. Saya memiliki minat besar dalam olahraga dan aktif di berbagai kegiatan di desa dan gereja. Harapan saya adalah menjadi orang yang sukses, dapat menjadi berkat bagi banyak orang, dan memberikan kontribusi yang bermanfaat bagi siapapun.",
-    image: "", // Gambar Base64 yang akan diambil dari Firebase
+    image: "",
   });
 
   useEffect(() => {
     const db = getDatabase();
     const aboutRef = ref(db, "about");
 
-    // Mendengarkan perubahan data "about" dan "image" dari Firebase
     onValue(aboutRef, (snapshot) => {
       const data = snapshot.val();
       if (data) {
-        // Pastikan gambar diambil dengan prefiks Base64
         setAboutData((prevData) => ({
           ...prevData,
           image: data.image
             ? `data:image/jpeg;base64,${data.image}`
-            : prevData.image, // Menambahkan prefiks
+            : prevData.image,
         }));
       }
     });
-  }, []); // Mengambil data hanya sekali saat komponen dimuat
+  }, []);
 
   return (
     <section id="about" className="about">
@@ -44,7 +42,7 @@ const About = () => {
                   alt="About Me"
                   style={{
                     width: "100%",
-                    maxWidth: "200px", // Ukuran gambar maksimal diatur di sini
+                    maxWidth: "200px",
                     objectFit: "cover",
                   }}
                 />
